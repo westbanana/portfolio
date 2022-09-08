@@ -1,0 +1,22 @@
+@import "../../assets/colors.scss";
+
+.main{
+  height: 23px;
+  width: 41px;
+  border: 1px solid var(--component);
+  background: transparent;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  .circle{
+    transition: 0.3s;
+    position: relative;
+    left: 0;
+    background: var(--component);
+    height: 17px;
+    width: 17px;
+    margin: 3px;
+    border-radius: 50px;
+  }
+}

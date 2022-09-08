@@ -1,0 +1,165 @@
+@import "./assets/colors.scss";
+
+.mainContainer{
+  overflow: auto;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  animation: showMain 1s linear forwards;
+}
+.welcomeContainer{
+  animation: showContainer 0.5s linear forwards;
+  .headerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .header{
+      font-weight: 600;
+      font-size: 80px;
+      line-height: 98px;
+      color: var(--font);
+    }
+  }
+}
+
+.backpack{
+  stroke: var(--component);
+  position: absolute;
+  left: -50px;
+  bottom: 60px;
+  animation: iconMoveLeft 3s linear infinite, showLeftIcon 1s linear forwards;
+}
+
+.notebook{
+  stroke: var(--component);
+  fill: var(--component);
+  position: absolute;
+  right: -200px;
+  animation: iconMoveRight 3s linear infinite, showRightIcon 1s linear forwards;
+}
+
+.swipes{
+  position: absolute;
+  top: 0;
+  right: -200px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: swiperShow 0.5s linear forwards;
+  .swiper{
+    display: flex;
+    gap: 17px;
+    align-items: center;
+    span{
+      min-width: 100px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: var(--font);
+    }
+  }
+}
+
+@keyframes swiperShow {
+  from{
+    right: -200px;
+  }
+  to{
+    right: 20px;
+  }
+}
+
+@keyframes showContainer {
+  from{
+    opacity: 0;
+    transform: scale(0);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes showMain {
+  from{
+    background: black;
+  }
+  to{
+    background: var(--background);
+  }
+}
+
+@keyframes iconMoveLeft {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(25px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@keyframes iconMoveRight {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(25px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+@keyframes showRightIcon {
+  from{
+    right: -200px;
+  }
+  to{
+    right: 200px;
+  }
+}
+@keyframes showLeftIcon {
+  from{
+    left: -200px;
+  }
+  to{
+    left: 200px;
+  }
+}
+
+.body{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .description{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: var(--font);
+  }
+}
+
+.code{
+  font-weight: 100;
+  font-size: 25px;
+  line-height: 30px;
+  color: var(--semiFont);
+}
+
+.first{
+  width: 100%;
+  text-align: left;
+  margin-right: 50px;
+}
+
+.second{
+  width: 100%;
+  margin-left: 50px;
+  text-align: right;
+}

@@ -1,0 +1,14 @@
+html[data-theme='dark'] {
+  --background: #1B2430;
+  --font: #FEFEFE;
+  --semiFont: rgba(254, 254, 254, 0.53);
+  --component: #51557E ;
+  --componentDarker: #31334B ;
+}
+html[data-theme='light'] {
+  --background: #FFFFFF;
+  --font: #1B2430;
+  --semiFont: #1B2430;
+  --component: #8AAAE5 ;
+  --componentDarker: #31334B ;
+}
