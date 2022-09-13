@@ -4,11 +4,13 @@ html[data-theme='dark'] {
   --semiFont: rgba(254, 254, 254, 0.53);
   --component: #51557E ;
   --componentDarker: #31334B ;
+  --componentHover: #9FA7FA ;
 }
 html[data-theme='light'] {
   --background: #FFFFFF;
   --font: #1B2430;
   --semiFont: #1B2430;
-  --component: #8AAAE5 ;
+  --component: #51557E ;
   --componentDarker: #31334B ;
+  --componentHover: #9FA7FA ;
 }

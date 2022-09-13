@@ -3,17 +3,27 @@
 .mainContainer{
   overflow: auto;
   height: 100vh;
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
   background: var(--background);
   animation: showMain 1s linear forwards;
 }
-.welcomeContainer{
+.blockContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin-bottom: 300px;
   animation: showContainer 0.5s linear forwards;
+  gap: 50px;
   .headerContainer{
     display: flex;
+    gap: 30px;
+    flex-direction: column;
+    position: relative;
+    z-index: 9;
     align-items: center;
     justify-content: center;
     .header{
@@ -25,24 +35,158 @@
   }
 }
 
+.firstContainer{
+  position: relative;
+}
+.secondContainer{
+
+}
+
 .backpack{
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
   stroke: var(--component);
-  position: absolute;
-  left: -50px;
-  bottom: 60px;
   animation: iconMoveLeft 3s linear infinite, showLeftIcon 1s linear forwards;
 }
 
 .notebook{
+  position: fixed;
+  z-index: 1;
   stroke: var(--component);
   fill: var(--component);
-  position: absolute;
-  right: -200px;
   animation: iconMoveRight 3s linear infinite, showRightIcon 1s linear forwards;
+}
+
+.iIcon{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  fill: var(--component);
+  animation: iconMoveRight 3s linear infinite, showRightIcon 1s linear forwards;
+}
+
+.list{
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  stroke: var(--component);
+  animation: iconMoveLeft 3s linear infinite, showLeftIcon 1s linear forwards;
+}
+
+.movie{
+  position: absolute;
+  left: -200px;
+  top: 0;
+  animation: converter 1s linear forwards, iconMoveLeft 3s linear infinite;
+}
+
+.profile{
+  position: absolute;
+  bottom: 150px;
+  right: -200px;
+  animation: currency 1s linear forwards, iconMoveRight 3s linear infinite;
+}
+
+.converter{
+  position: absolute;
+  left: -200px;
+  top: 0;
+  animation: converter 1s linear forwards, iconMoveLeft 3s linear infinite;
+}
+
+.currency{
+  position: absolute;
+  bottom: 150px;
+  right: -200px;
+  animation: currency 1s linear forwards, iconMoveRight 3s linear infinite;
+}
+
+@keyframes converter {
+  from{
+    left: 500px;
+    top: 0;
+  }
+  to{
+    left: -200px;
+    top: 0;
+  }
+}
+@keyframes currency {
+  from{
+    bottom: 150px;
+    right: 500px;
+  }
+  to{
+    bottom: 150px;
+    right: -200px;
+  }
+}
+
+.CockroachFirst{
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  stroke: var(--component);
+  left: 0;
+  animation: cockRoachShakingFirst 1s linear infinite, cockRoachFirst 15s linear forwards;
+}
+
+.CockroachSecond{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  fill: var(--component);
+  animation: cockRoachShakingSecond 1s linear infinite, cockRoachSecond 15s linear forwards;
+}
+
+@keyframes cockRoachFirst {
+  from{
+    left: 0;
+    bottom: 0;
+  }
+  to{
+    left: 100%;
+    bottom: 50%;
+  }
+}
+@keyframes cockRoachSecond {
+  from{
+    right: 0;
+    top: 0;
+  }
+  to{
+    right: 100%;
+    top: 50%;
+  }
+}
+@keyframes cockRoachShakingFirst {
+  0%{
+    transform: rotate(15deg);
+  }
+  50%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(15deg);
+  }
+}
+@keyframes cockRoachShakingSecond {
+  0%{
+    transform: rotate(195deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(195deg);
+  }
 }
 
 .swipes{
   position: absolute;
+  z-index: 99;
   top: 0;
   right: -200px;
   display: flex;
@@ -59,6 +203,82 @@
       font-size: 16px;
       line-height: 20px;
       color: var(--font);
+    }
+    .swiperBorder{
+      height: 23px;
+      width: 41px;
+      border: 1px solid var(--component);
+      background: transparent;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      .swiperCircle{
+        transition: 0.3s;
+        position: relative;
+        left: 0;
+        background: var(--component);
+        height: 17px;
+        width: 17px;
+        margin: 3px;
+        border-radius: 50px;
+      }
+    }
+  }
+}
+
+.buttonContainer{
+  position: relative;
+  &:hover{
+    .button{
+      border: 2px solid var(--componentHover);
+      span{
+        color: var(--componentHover);
+      }
+    }
+    .topStick{
+      left: 70px;
+    }
+    .bottomStick{
+      right: 80px;
+    }
+  }
+  .topStick{
+    position: absolute;
+    height: 20px;
+    background: var(--background);
+    bottom: 16px;
+    left: 10px;
+    width: 5px;
+    transform: rotate(133.79deg);
+    transition: 0.3s;
+  }
+  .bottomStick{
+    position: absolute;
+    height: 20px;
+    background: var(--background);
+    bottom: -16px;
+    right: 20px;
+    width: 5px;
+    transform: rotate(47.29deg);
+    transition: 0.3s;
+  }
+  .button{
+    text-decoration: none;
+    border: 2px solid var(--component);
+    border-radius: 4px;
+    height: 28px;
+    text-align: center;
+    padding: 5px;
+    color: var(--component);
+    transition: all 0.3s;
+    span{
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 18px;
+      text-align: center;
+      color: #51557E;
+      transition: ease-in-out 0.3s;
     }
   }
 }
@@ -117,18 +337,18 @@
 }
 @keyframes showRightIcon {
   from{
-    right: -200px;
+    right: -300%;
   }
   to{
-    right: 200px;
+    right: -80%;
   }
 }
 @keyframes showLeftIcon {
   from{
-    left: -200px;
+    left: -300%;
   }
   to{
-    left: 200px;
+    left: -80%;
   }
 }
 
@@ -137,6 +357,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 9;
   .description{
     font-weight: 400;
     font-size: 24px;

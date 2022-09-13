@@ -1,0 +1,15 @@
+{
+    "language": "English",
+    "lightTheme": "Light theme",
+    "darkTheme": "Dark theme",
+    "welcome": "<Welcome />",
+    "welcomeDescription": "Here is a collection of works, and about myself",
+    "aboutHeader": "Below are the sites, what I have done and a little about me",
+    "button": "VISIT",
+    "landingHeader": "<Landing on JavaScript />",
+    "landingDescription": "I made a landing on a freelance basis, the topic is disinfection of premises",
+    "converterHeader": "<Currency converter />",
+    "converterDescription": "Performed the same task for company. It was necessary to make a currency converter on ReactJs",
+    "idLookHeader": "<I’d look />",
+    "idLookDescription": "I made a site on the subject of movies, series, cartoons. Features: watching trailers, information, etc."
+}

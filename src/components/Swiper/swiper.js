@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
-import  s from './swiper.module.scss';
 
-const Swiper = ({ setTheme, theme}) => {
+import s from './swiper.module.scss';
+
+const Swiper = ({
+  changeState, mainState, first, second,
+}) => {
   const [isSwiped, setIsSwiped] = useState(false);
-  const swiper = () => {
+  const swipe = (setState, state) => {
     setIsSwiped(!isSwiped);
-    console.log(1)
-    if (theme === 'dark') {
-      setTheme('light');
+    if (state === first) {
+      setState(second);
     } else {
-      setTheme('dark');
+      setState(first);
     }
-  }
+  };
   return (
     <div
+      role="presentation"
       className={s.main}
-      onClick={swiper}
+      onClick={() => swipe(changeState, mainState)}
     >
       <div
         className={s.circle}
-        style={{left: `${isSwiped ? 'calc(100% - 23px)' : '0'}`}}
+        style={{ left: `${isSwiped ? 'calc(100% - 23px)' : '0'}` }}
       />
     </div>
   );
-}
+};
 
 export default Swiper;
-
-
