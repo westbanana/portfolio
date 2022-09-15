@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -15,6 +16,7 @@ code {
 *::before,
 *::after {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 ul[class],

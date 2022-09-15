@@ -1,26 +1,11 @@
-<div className={`${s.blockContainer} ${s.secondContainer}`}>
-        <IIcon className={s.iIcon} />
-        <List className={s.list} />
-        <div className={s.body}>
-          <span className={`${s.code} ${s.first}`}>&lt;span &frasl;&gt;</span>
-          <h1 className={s.description}>
-            {language.aboutHeader}
-          </h1>
-          <span className={`${s.code} ${s.second}`}>&lt;span &frasl;&gt;</span>
-        </div>
-      </div>
-
-      <div className={`${s.blockContainer} ${s.firstContainer}`}>
-        <Notebook className={s.notebook} />
-        <Backpack className={s.backpack} />
-        <div className={s.headerContainer}>
-          <span className={s.header}>{language.landingHeader}</span>
-        </div>
-        <div className={s.body}>
-          <span className={`${s.code} ${s.first}`}>&lt;span &frasl;&gt;</span>
-          <span className={s.description}>
-            {language.landingDescription}
-          </span>
-          <span className={`${s.code} ${s.second}`}>&lt;span &frasl;&gt;</span>
-        </div>
-      </div>
+.notebook
+.backpack
+.CockroachFirst
+.CockroachSecond
+.converter
+.currency
+.profile
+.movie
+.cap
+.light
+.profileIcon
