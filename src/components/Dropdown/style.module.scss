@@ -1,0 +1,52 @@
+.main{
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 99999;
+  color: var(--font);
+  width: 130px;
+  .setLanguage{
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    .arrow{
+      position: absolute;
+      right: 0;
+      height: 15px;
+      width: 15px;
+      transition: 0.3s;
+    }
+  }
+  .languages{
+    padding: 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--component);
+    transition: 0.3s;
+    animation: show 0.3s linear forwards;
+    span{
+      border-bottom: 1px solid var(--component);
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        color: var(--componentHover);
+      }
+    }
+  }
+}
+
+@keyframes show {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

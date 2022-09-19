@@ -1,11 +1,24 @@
-.notebook
-.backpack
-.CockroachFirst
-.CockroachSecond
-.converter
-.currency
-.profile
-.movie
-.cap
-.light
-.profileIcon
+<div className={s.swipes}>
+        <div className={s.swiper}>
+          <span>
+            {language.language}
+          </span>
+          <Swiper
+            changeState={setLanguage}
+            mainState={language}
+            first={ukrainian}
+            second={english}
+          />
+        </div>
+        <div className={s.swiper}>
+          <span>
+            {language.darkTheme}
+          </span>
+          <Swiper
+            changeState={setTheme}
+            mainState={theme}
+            first="dark"
+            second="light"
+          />
+        </div>
+      </div>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import s from './App.module.scss';
 import { ReactComponent as Backpack } from './assets/svg/backpack.svg';
@@ -19,68 +19,17 @@ import useTheme from './components/Hooks/index.js';
 import english from './assets/languages/english.json';
 import ukrainian from './assets/languages/ukrainian.json';
 import Swiper from './components/Swiper/swiper';
+import Contacts from './components/Contacts';
+import Dropdown from './components/Dropdown';
 
 const App = () => {
   const { theme, setTheme } = useTheme();
   const [language, setLanguage] = useState(english);
-  const refWelcome = useRef(null);
-  const refLanding = useRef(null);
-  const refConverter = useRef(null);
-  const refIdLook = useRef(null);
-  const refSkills = useRef(null);
-  const refAbout = useRef(null);
+  const [currentScreen, setCurrentScreen] = useState('#welcome');
   return (
     <div className={s.mainContainer}>
-      <div className={s.navButtons}>
-        <a
-          href="#welcome"
-          className={s.navButton}
-        >
-          .
-        </a>
-        <a
-          href="#cockroach"
-          className={s.navButton}
-        >
-          .
-        </a>
-        <a
-          href="#converter"
-          className={s.navButton}
-        >
-          .
-        </a>
-        <a
-          href="#idlook"
-          className={s.navButton}
-        >
-          .
-        </a>
-        <a
-          href="#skills"
-          className={s.navButton}
-        >
-          .
-        </a>
-        <a
-          href="#aboutme"
-          className={s.navButton}
-        >
-          .
-        </a>
-      </div>
+      <Contacts />
       <div className={s.swipes}>
-        <div className={s.swiper}>
-          <span>
-            {language.language}
-          </span>
-          <Swiper
-            changeState={setLanguage}
-            mainState={language}
-            first={ukrainian}
-            second={english}
-          />
-        </div>
         <div className={s.swiper}>
           <span>
             {language.darkTheme}
@@ -93,8 +42,65 @@ const App = () => {
           />
         </div>
       </div>
+      <Dropdown
+        setLanguage={setLanguage}
+        language={language}
+        english={english}
+        ukrainian={ukrainian}
+      />
       <div
-        ref={refWelcome}
+        className={s.navButtons}
+      >
+        <a
+          href="#welcome"
+          className={s.navButton}
+          style={{ background: `${currentScreen === '#welcome' ? 'var(--font)' : 'var(--componentHover)'}`, transform: `scale(${currentScreen === '#welcome' ? '1.5' : '1'})` }}
+          onClick={() => setCurrentScreen('#welcome')}
+        >
+          .
+        </a>
+        <a
+          href="#cockroach"
+          className={s.navButton}
+          style={{ background: `${currentScreen === '#cockroach' ? 'var(--font)' : 'var(--componentHover)'}`, transform: `scale(${currentScreen === '#cockroach' ? '1.5' : '1'})` }}
+          onClick={() => setCurrentScreen('#cockroach')}
+        >
+          .
+        </a>
+        <a
+          href="#converter"
+          className={s.navButton}
+          style={{ background: `${currentScreen === '#converter' ? 'var(--font)' : 'var(--componentHover)'}`, transform: `scale(${currentScreen === '#converter' ? '1.5' : '1'})` }}
+          onClick={() => setCurrentScreen('#converter')}
+        >
+          .
+        </a>
+        <a
+          href="#idlook"
+          className={s.navButton}
+          style={{ background: `${currentScreen === '#idlook' ? 'var(--font)' : 'var(--componentHover)'}`, transform: `scale(${currentScreen === '#idlook' ? '1.5' : '1'})` }}
+          onClick={() => setCurrentScreen('#idlook')}
+        >
+          .
+        </a>
+        <a
+          href="#skills"
+          className={s.navButton}
+          style={{ background: `${currentScreen === '#skills' ? 'var(--font)' : 'var(--componentHover)'}`, transform: `scale(${currentScreen === '#skills' ? '1.5' : '1'})` }}
+          onClick={() => setCurrentScreen('#skills')}
+        >
+          .
+        </a>
+        <a
+          href="#aboutme"
+          className={s.navButton}
+          style={{ background: `${currentScreen === '#aboutme' ? 'var(--font)' : 'var(--componentHover)'}`, transform: `scale(${currentScreen === '#aboutme' ? '1.5' : '1'})` }}
+          onClick={() => setCurrentScreen('#aboutme')}
+        >
+          .
+        </a>
+      </div>
+      <div
         id="welcome"
         className={`${s.blockContainer} ${s.firstContainer}`}
       >
@@ -112,7 +118,6 @@ const App = () => {
         </div>
       </div>
       <div
-        ref={refLanding}
         id="cockroach"
         className={`${s.blockContainer} ${s.firstContainer}`}
       >
@@ -145,7 +150,6 @@ const App = () => {
         </div>
       </div>
       <div
-        ref={refConverter}
         id="converter"
         className={`${s.blockContainer} ${s.firstContainer}`}
       >
@@ -178,7 +182,6 @@ const App = () => {
         </div>
       </div>
       <div
-        ref={refIdLook}
         id="idlook"
         className={`${s.blockContainer} ${s.firstContainer}`}
       >
@@ -211,7 +214,6 @@ const App = () => {
         </div>
       </div>
       <div
-        ref={refSkills}
         id="skills"
         className={`${s.blockContainer} ${s.firstContainer}`}
       >
@@ -230,7 +232,6 @@ const App = () => {
         </div>
       </div>
       <div
-        ref={refAbout}
         id="aboutme"
         className={`${s.blockContainer} ${s.firstContainer} ${s.lastContainer}`}
       >
@@ -243,7 +244,7 @@ const App = () => {
           {language.aboutMeDescription.map(element => (
             <div className={s.aboutMeBlock}>
               <span className={`${s.code} ${s.first}`}>&lt;li&gt;</span>
-              <span className={s.description}>
+              <span className={`${s.description} ${s.descriptionAboutme}`}>
                 {element}
               </span>
               <span className={`${s.code} ${s.first}`}>&lt;li &frasl;&gt;</span>

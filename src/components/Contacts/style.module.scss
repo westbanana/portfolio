@@ -1,0 +1,85 @@
+.mainContacts{
+  position: fixed;
+  z-index: 999;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .otherContacts{
+    display: flex;
+    gap: 10px;
+    a{
+      cursor: pointer;
+    }
+    a:nth-of-type(1){
+      transform: translateX(150px);
+    }
+    a:nth-of-type(2){
+      transform: translateX(100px);
+    }
+    a:nth-of-type(3){
+      transform: translateX(50px);
+    }
+    a{
+      animation: showContacts 0.3s linear forwards;
+      &:hover{
+        filter: brightness(200);
+      }
+    }
+    .icon{
+      height: 40px;
+      width: 40px;
+      fill: var(--componentHover);
+      cursor: pointer;
+    }
+    .iconMail{
+      height: 40px;
+      width: 40px;
+      stroke: var(--componentHover);
+      cursor: pointer;
+    }
+  }
+  .contacts{
+    padding: 20px;
+    border-radius: 50px;
+    background: var(--componentHover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover{
+      filter: brightness(1.2);
+    }
+    .contactsPhone{
+      max-height: 20px;
+      max-width: 20px;
+      animation: phoneAnimation 3s linear infinite;
+    }
+  }
+}
+
+@keyframes showContacts {
+  from{
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+@keyframes phoneAnimation {
+  0%{
+    transform: rotate(0);
+  }
+  50%{
+    transform: rotate(15deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+}
+
+@media (max-width: 800px) {
+ .mainContacts{
+   right: 5px;
+ }
+}
