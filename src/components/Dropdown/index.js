@@ -9,6 +9,7 @@ const Dropdown = ({
 }) => {
   const [isOpened, setIsOpened] = useState(false);
   const refDropdown = useRef(null);
+  const refLanguages = useRef(null);
   useClickAway(refDropdown, () => {
     setIsOpened(false);
   });
@@ -23,6 +24,7 @@ const Dropdown = ({
       className={s.main}
     >
       <div
+        ref={refLanguages}
         role="presentation"
         onClick={() => setIsOpened(!isOpened)}
         className={s.setLanguage}

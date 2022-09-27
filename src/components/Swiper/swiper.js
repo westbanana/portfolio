@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import s from './swiper.module.scss';
 
 const Swiper = ({

@@ -15,7 +15,9 @@ img{
   background: var(--background);
   animation: showMain 1s linear forwards;
 }
+
 .blockContainer{
+  margin: 100px 0;
   overflow: hidden;
   padding: 0 50px;
   display: flex;
@@ -24,7 +26,7 @@ img{
   align-items: center;
   animation: showContainer 0.5s linear forwards;
   gap: 50px;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   height: 100vh;
   position: relative;
@@ -41,7 +43,7 @@ img{
       text-align: center;
       width: 100%;
       font-weight: 600;
-      font-size: 80px;
+      font-size: 50px;
       color: var(--font);
     }
   }
@@ -50,7 +52,7 @@ img{
 //style for scrollbar
 .mainContainer{
   &::-webkit-scrollbar{
-    width: 1px;
+    width: 5px;
     display: none;
   }
   &::-webkit-scrollbar-track{
@@ -107,21 +109,21 @@ img{
 .notebook{
   position: fixed;
   z-index: 1;
-  overflow: hidden;
   right: 0;
-  top: 100px;
+  top: 0;
+  overflow: hidden;
   stroke: var(--component);
   fill: var(--component);
-  animation: showRightIcon 1s linear forwards, iconMove 3s linear infinite;
+  animation: iconMove 3s linear infinite;
 }
 
   .backpack{
   position: fixed;
   z-index: 1;
-  bottom: 50px;
   left: 0;
+  bottom: 0;
   stroke: var(--component);
-  animation: iconMove 3s linear forwards, iconMove 3s linear infinite;
+  animation: iconMove 3s linear infinite;
 }
 
 .CockroachFirst{
@@ -130,7 +132,7 @@ img{
   bottom: 0;
   stroke: var(--component);
   left: 0;
-  animation: cockRoachShakingFirst 1s linear infinite, cockRoachFirst 20s linear forwards;
+  animation: cockRoachShakingFirst 1s linear infinite;
 }
 
 .CockroachSecond{
@@ -139,13 +141,11 @@ img{
   top: 0;
   right: 0;
   fill: var(--component);
-  animation: cockRoachShakingSecond 1s linear infinite, cockRoachSecond 15s linear forwards;
+  animation: cockRoachShakingSecond 1s linear infinite;
 }
 
 .converter{
   position: absolute;
-  left: -500px;
-  top: 0;
   animation: converter 1s linear forwards, iconMove 3s linear infinite;
 }
 
@@ -192,38 +192,6 @@ img{
   animation: profileMoveTopBottom 3s linear infinite, profileMoveRight 1s linear forwards, profileMove 50s linear infinite;
 }
 
-//navigation buttons
-.navButtons{
-  position: fixed;
-  right: 20px;
-  top: calc(50% - 115px);
-  z-index: 9999;
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .navButton{
-    opacity: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25%;
-    height: 20px;
-    width: 20px;
-    color: transparent;
-    background: var(--componentHover);
-    transition: 0.3s;
-    &:hover{
-      background: var(--font);
-      transform: scale(1.3);
-    }
-  }
-  .activeNavButton{
-    height: 30px;
-    width: 30px;
-  }
-}
-
 //Settings
 .settingsIcon{
   position: absolute;
@@ -238,8 +206,8 @@ img{
 
 //swipes container
 .swipes{
-  position: absolute;
-  z-index: 99;
+  position: fixed;
+  z-index: 999999;
   top: 20px;
   left: -200px;
   display: flex;
@@ -280,63 +248,6 @@ img{
   }
 }
 
-//button container
-.buttonContainer{
-  position: relative;
-  &:hover{
-    .button{
-      border: 2px solid var(--componentHover);
-      span{
-        color: var(--componentHover);
-      }
-    }
-    .topStick{
-      left: 70px;
-    }
-    .bottomStick{
-      right: 80px;
-    }
-  }
-  .topStick{
-    position: absolute;
-    height: 20px;
-    background: var(--background);
-    bottom: 16px;
-    left: 10px;
-    width: 5px;
-    transform: rotate(133.79deg);
-    transition: left 0.3s;
-  }
-  .bottomStick{
-    position: absolute;
-    height: 20px;
-    background: var(--background);
-    bottom: -16px;
-    right: 20px;
-    width: 5px;
-    transform: rotate(47.29deg);
-    transition: right 0.3s;
-  }
-  .button{
-    text-decoration: none;
-    border: 2px solid var(--component);
-    border-radius: 4px;
-    height: 28px;
-    text-align: center;
-    padding: 5px;
-    color: var(--component);
-    transition: all 0.3s;
-    span{
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 18px;
-      text-align: center;
-      color: #51557E;
-      transition: ease-in-out 0.3s;
-    }
-  }
-}
-
 //body block
 .body{
   margin-top: 20px;
@@ -346,7 +257,7 @@ img{
   z-index: 9;
   .description{
     font-weight: 400;
-    font-size: 24px;
+    font-size: 15px;
     line-height: 29px;
     color: var(--font);
     text-align: center;
@@ -356,7 +267,7 @@ img{
 //span, h1, ul, li
 .code{
   font-weight: 100;
-  font-size: 25px;
+  font-size: 15px;
   line-height: 30px;
   color: var(--semiFont);
 }
@@ -366,6 +277,41 @@ img{
 
 .second{
   text-align: end;
+}
+
+.showRightContainer{
+  animation: showRightContainers 0.1s linear forwards;
+}
+
+@keyframes showRightContainers {
+  0% {
+    opacity: 0;
+    transform: translateX(500px);
+  }
+  80%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.showLeftContainer{
+  animation: showLeftContainers 0.1s linear forwards;
+}
+
+@keyframes showLeftContainers {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+  80%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 //animations
@@ -421,11 +367,11 @@ img{
 @keyframes converter {
   from{
     left: -500px;
-    top: 0;
+    top: 100px;
   }
   to{
     left: 0;
-    top: 0;
+    top: 100px;
   }
 }
 @keyframes currency {
@@ -445,7 +391,7 @@ img{
     bottom: 0;
   }
   to{
-    left: 90%;
+    left: 80%;
     bottom: 50%;
   }
 }
@@ -455,7 +401,7 @@ img{
     top: 0;
   }
   to{
-    right: 90%;
+    right: 80%;
     top: 50%;
   }
 }
@@ -599,9 +545,6 @@ img{
   .CockroachSecond{
     height: 100px;
     width: 100px;
-  }
-  .navButtons{
-    display: none;
   }
 }
 

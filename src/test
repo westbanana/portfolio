@@ -1,24 +1,179 @@
-<div className={s.swipes}>
-        <div className={s.swiper}>
-          <span>
-            {language.language}
-          </span>
-          <Swiper
-            changeState={setLanguage}
-            mainState={language}
-            first={ukrainian}
-            second={english}
-          />
+
+  const exampleVariant = {
+    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+    hidden: { opacity: 0, scale: 0 },
+  };
+
+  const rightIconVariant = {
+    visible: {
+      opacity: 1, right: 0, top: 0, transition: { duration: 1 },
+    },
+    hidden: { opacity: 0, right: '-300px', top: 0 },
+  };
+
+  const leftIconVariant = {
+    visible: {
+      opacity: 1, left: 0, bottom: 0, transition: { duration: 1 },
+    },
+    hidden: { opacity: 0, left: '-300px', bottom: 0 },
+  };
+
+  const cockroachRight = {
+    visible: {
+      opacity: 1, right: '80%', top: '50%', transition: { duration: 1 },
+    },
+    hidden: { opacity: 0, right: 0, top: 0 },
+  };
+  const cockroachLeft = {
+    visible: {
+      opacity: 1, left: '80%', bottom: '50%', transition: { duration: 1 },
+    },
+    hidden: { opacity: 0, right: 0, bottom: 0 },
+  };
+
+  useEffect(() => {
+    if (inView) {
+      control.start('visible');
+    } else {
+      control.start('hidden');
+    }
+  }, [control, inView]);
+
+
+
+
+<div
+        ref={refWelcome}
+        id="welcome"
+        className={`${s.blockContainer} ${s.firstContainer}`}
+      >
+        <div
+          className={s.notebook}
+        >
+          <Notebook />
         </div>
-        <div className={s.swiper}>
-          <span>
-            {language.darkTheme}
+        <div
+          className={s.backpack}
+        >
+          <Backpack />
+        </div>
+        <div
+          className={s.headerContainer}
+        >
+          <span className={s.header}>{language.welcome}</span>
+        </div>
+        <div className={s.body}>
+          <span className={`${s.code} ${s.first}`}>&lt;span&gt;</span>
+          <span className={s.description}>
+            {language.welcomeDescription}
           </span>
-          <Swiper
-            changeState={setTheme}
-            mainState={theme}
-            first="dark"
-            second="light"
-          />
+          <span className={`${s.code} ${s.second}`}>&lt;span &frasl;&gt;</span>
+        </div>
+      </div>
+      <div
+        id="cockroach"
+        className={`${s.blockContainer} ${s.firstContainer} ${s.cockRoach}`}
+      >
+        <div className={s.CockroachSecond}>
+          <CockRoachIcon />
+        </div>
+        <div className={s.CockroachFirst}>
+          <CockRoachIcon />
+        </div>
+        <div className={s.headerContainer}>
+          <span className={s.header}>{language.landingHeader}</span>
+          <img src={landing} alt="project.png" />
+        </div>
+        <div
+          className={s.body}
+        >
+          <span className={`${s.code} ${s.first}`}>&lt;span&gt;</span>
+          <span className={s.description}>
+            {language.landingDescription}
+          </span>
+          <span className={`${s.code} ${s.second}`}>&lt;span &frasl;&gt;</span>
+        </div>
+        <div className={s.buttonContainer}>
+          <a
+            className={s.button}
+            rel="noreferrer"
+            target="_blank"
+            href="http://gsd-kr.com/"
+          >
+            <div className={s.topStick} />
+            <span>
+              {language.button}
+            </span>
+          </a>
+          <div className={s.bottomStick} />
+        </div>
+      </div>
+      <div
+        ref={refConverter}
+        id="converter"
+        className={`${s.blockContainer} ${s.firstContainer}`}
+      >
+        <ConverterIcon className={s.converter} />
+        <CurrencyIcon className={s.currency} />
+        <div
+          className={s.headerContainer}
+        >
+          <span className={s.header}>{language.converterHeader}</span>
+          <img src={converter} alt="project.png" />
+        </div>
+        <div
+          className={s.body}
+        >
+          <span className={`${s.code} ${s.first}`}>&lt;span&gt;</span>
+          <span className={s.description}>
+            {language.converterDescription}
+          </span>
+          <span className={`${s.code} ${s.second}`}>&lt;span &frasl;&gt;</span>
+        </div>
+        <div className={s.buttonContainer}>
+          <a
+            className={s.button}
+            rel="noreferrer"
+            target="_blank"
+            href="https://react-converter.herokuapp.com/?from=USD&to=UAH&amount=1"
+          >
+            <div className={s.topStick} />
+            <span>
+              {language.button}
+            </span>
+          </a>
+          <div className={s.bottomStick} />
+        </div>
+      </div>
+      <div
+        id="idlook"
+        className={`${s.blockContainer} ${s.firstContainer}`}
+      >
+        <IdLookProfile className={s.profile} />
+        <IdLookMovie className={s.movie} />
+        <div className={s.headerContainer}>
+          <span className={s.header}>{language.idLookHeader}</span>
+          <img src={idlook} alt="project.png" />
+        </div>
+        <div className={s.body}>
+          <span className={`${s.code} ${s.first}`}>&lt;span&gt;</span>
+          <span className={s.description}>
+            {language.idLookDescription}
+          </span>
+          <span className={`${s.code} ${s.second}`}>&lt;span &frasl;&gt;</span>
+        </div>
+        <div className={s.buttonContainer}>
+          <a
+            className={s.button}
+            rel="noreferrer"
+            target="_blank"
+            href="https://id-look.herokuapp.com/"
+          >
+            <div className={s.topStick} />
+            <span>
+              {language.button}
+            </span>
+          </a>
+          <div className={s.bottomStick} />
         </div>
       </div>

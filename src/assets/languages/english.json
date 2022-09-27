@@ -18,5 +18,6 @@
     "aboutMeHeader": "<About me />",
     "aboutMeDescription": [
         "Full name: Lysenko Illia Vasylevich ", "Place of birth: Ukraine, c. Kryvyi Rih", "Date of birth: 10.01.2001", "Desired position: Junior React Developer"
-    ]
+    ],
+    "thanks": "Thank you for attention"
 }
