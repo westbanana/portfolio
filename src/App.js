@@ -54,6 +54,7 @@ const App = () => {
       />
       <Welcome id="welcome" language={language} />
       <Projects
+        link="http://gsd-kr.com/"
         elementId="cockroach"
         firstIcon={<CockRoachIcon />}
         secondIcon={<SecondCockRoachIcon />}
@@ -63,6 +64,7 @@ const App = () => {
         description={language.landingDescription}
       />
       <Projects
+        link="https://react-converter.herokuapp.com/"
         elementId="converter"
         firstIcon={<ConverterIcon />}
         secondIcon={<CurrencyIcon />}
@@ -72,6 +74,7 @@ const App = () => {
         description={language.converterDescription}
       />
       <Projects
+        link="https://id-look.herokuapp.com/"
         elementId="idlook"
         firstIcon={<IdLookProfile />}
         secondIcon={<IdLookMovie />}

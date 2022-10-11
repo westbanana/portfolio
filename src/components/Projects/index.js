@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import s from './style.module.scss';
 
 const Projects = ({
-  language, firstIcon, secondIcon, wallpaper, header, description,
+  language, firstIcon, secondIcon, wallpaper, header, description, link,
 }) => {
   const control = useAnimation();
   const [ref, inView] = useInView();
@@ -75,7 +75,7 @@ const Projects = ({
           className={s.button}
           rel="noreferrer"
           target="_blank"
-          href="http://gsd-kr.com/"
+          href={link}
         >
           <div className={s.topStick} />
           <span>
